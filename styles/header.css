@@ -1,0 +1,382 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;500;600;700&family=Klee+One:wght@400;600&display=swap');
+
+/*reset*/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --color-bg: #141b29;
+
+    --color-1: #5AC994;
+    --color-2: #5ac99349;
+    --color-3: #c0f7b7;
+    --color-4: #124143;
+
+    --border-radius-1: 5px;
+}
+
+html{
+    font-size: 16px;
+    font-family: 'Chakra Petch', sans-serif;
+    /*font-family: 'Klee One', cursive;*/
+}
+
+body{
+    min-height: 100vh;
+    counter-reset: item;
+    counter-reset: section;
+    color: white;
+    background-color: var(--color-bg);
+}
+
+.header{
+    width: 100%;
+    padding: 10px 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.container_navigation{
+    width: 50%;
+    min-width: 400px;
+
+}
+
+.menu ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.menu ul li{
+    counter-increment: item 1;
+}
+
+.item_menu_link, .button_cv_resume {
+    text-decoration: none;
+    color: black;
+    text-transform: capitalize;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.item_menu_link::before{
+    content: "0" counter(item) ".";
+    margin-right: 5px;
+    color: var(--color-1);
+}
+
+.item_menu_link:hover{
+    color: var(--color-1);
+}
+
+.button_cv_resume {
+    padding: 10px;
+    border: 2px solid var(--color-1);
+    border-radius: 5px;
+    color: var(--color-1);
+    font-size: 16px;
+    font-weight: 700;
+    transition: 0.5s;
+}
+
+.button_cv_resume:hover{
+    background-color: var(--color-1);
+    color: azure;
+}
+
+/*css logo*/
+.container_logo{
+    width: 50px;
+}
+.container_logo img{
+    width: 100%;
+    border-radius: 50%;
+}
+
+/* css main*/
+
+#main {
+    width: 100%;
+    max-width: 1600px;
+    padding: 0px 300px;
+    margin: 0 auto;
+}
+
+#presentation{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.greeting_profile{
+    color: var(--color-1);
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.name_profile{
+    text-transform: capitalize;
+    font-size: 3.5rem;
+    margin: 10px 0px 10px 0px;
+}
+
+.description_profile{
+    width: 90%;
+}
+
+/*about section*/
+#about{
+    padding: 100px 0px;
+}
+
+.container_title_section{
+    padding-bottom: 15px;
+}
+
+.text_title_section{
+    text-transform: capitalize;
+    font-size: 1.5rem;
+    counter-increment: section 1;
+}
+
+.text_title_section::before{
+    content: "0" counter(section) ".";
+    color: var(--color-1);
+    margin-right: 5px;
+}
+
+.text_title_section::after{
+    content: "";
+    width: 250px;
+    height: 2px;
+    display: inline-block;
+
+    background: var(--color-1);
+    position: relative;
+    left: 10px;
+    bottom: 6px;
+}
+
+.container_decription_section{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+.img_effect {
+    width: 250px;
+    height: 250px;
+    /* overflow: hidden; */
+    position: relative;
+    margin: 0 auto;
+}
+
+/* .img_effect::before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    background-color: var(--color-2);
+    border-radius: var(--border-radius-1);
+    position: absolute;
+    left: 0;
+    top: 0;
+} */
+
+.img_effect::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    border: 2px solid var(--color-1);
+    border-radius: var(--border-radius-1);
+
+    position: absolute;
+    left: 10px;
+    top: 10px;
+
+    z-index: -1;
+    transition: 0.3s ease;
+}
+
+.img_effect:hover::before{
+    background-color: transparent;;
+}
+
+.img_effect:hover::after{
+    left: 5px;
+    top: 5px;
+    background-color: var(--color-2);
+}
+.img_effect img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: var(--border-radius-1);
+}
+
+.text_section p{
+    margin-bottom: 10px;
+}
+
+.text_section ul{
+    list-style: none;
+    margin:5px 0px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+#about .text_section ul li::before{
+    content: "▹";
+    color: var(--color-1);
+    margin-left: 3px;
+}
+
+/* experience section*/
+#experience{
+    padding: 150px 0px;
+}
+ #experience .container_decription_section {
+    grid-template-columns: 1fr;
+ }
+ #experience .text_section ul{
+    grid-template-columns: 1fr;
+ }
+ #experience .text_section ul li p::before{
+    content: "▹";
+    color: var(--color-1);
+    margin-left: 3px;
+}
+
+/* works section*/
+#projects{
+    padding: 100px 0px;
+}
+
+.container_card_project{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 50px;
+}
+
+.img_effect_project{
+    width: 550px;
+    height: 300px;
+
+    position:relative;
+}
+
+.img_effect_project::before{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    background-color: transparent;
+    border-radius: var(--border-radius-1);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    transition: 0.3s ease;
+}
+
+.img_effect_project:hover::before{
+    background-color: var(--color-2);
+}
+
+.img_effect_project img{
+    width: 100%;
+    height: 100%;
+
+    object-fit:  cover;
+    object-position: center center;
+
+    border-radius: var(--border-radius-1);
+}
+
+.description_card_project{
+    text-align: right;
+}
+
+.text_outstanding_project{
+    color: var(--color-1);
+    letter-spacing: 0.1em;
+}
+
+.name_card_project{
+    text-transform: uppercase;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.information_card_project{
+    background-color: var(--color-3);
+    padding: 10px;
+    border-radius: var(--border-radius-1);
+    margin-bottom: 10px;
+
+    transition: .3s ease;
+}
+
+.information_card_project:hover{
+    box-shadow: 10px 18px 30px 0px rgba(0,0,0,0.75);
+}
+
+.container_programming_languages ul{
+    list-style: none;
+    display: flex;
+    justify-content: right;
+}
+
+.container_programming_languages ul li{
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.9em;
+    margin: 0px 5px;
+}
+
+.container_links_project ul{
+    list-style: none;
+    display: flex;
+    justify-content: right;
+    margin: 5px 0;
+}
+
+.container_links_project ul li{
+    margin: 0px 5px;
+}
+
+.container_links_project ul li a{
+    color: var(--color-4);
+    text-decoration: none;
+    transition: .5 ease;
+}
+
+.container_links_project ul li:hover a{
+    color: var(--color-1);
+}
+
+.img_card_project{
+    position: relative;
+    left: 20px;
+}
+
+.description_card_project{
+    position: relative;
+    left: -20px;
+}
